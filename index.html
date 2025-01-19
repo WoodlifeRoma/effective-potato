@@ -35,48 +35,7 @@
         <p>&copy; 2025 Ваш магазин</p>
     </footer>
     <script>
-        // Завантаження товарів із кошика
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        const orderItemsContainer = document.getElementById('order-items');
-        const orderTotalContainer = document.getElementById('order-total');
-
-        let total = 0;
-
-        cart.forEach(item => {
-            const orderItem = document.createElement('div');
-            orderItem.className = 'order-item';
-            orderItem.innerHTML = `
-                <span>${item.name}</span>
-                <span>${item.quantity} x ${item.price} грн</span>
-            `;
-            orderItemsContainer.appendChild(orderItem);
-
-            total += item.quantity * item.price;
-        });
-
-        orderTotalContainer.textContent = `Загальна сума: ${total} грн`;
-
-        // Обробка форми
-        const checkoutForm = document.getElementById('checkout-form');
-
-        checkoutForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-
-            // Відправка замовлення (може бути інтеграція з сервером)
-            console.log('Замовлення:', { name, phone, address, cart });
-
-            
-
-            // Очищення кошика
-            localStorage.removeItem('cart');
-            window.location.href = 'index.html'; // Перенаправлення на головну
-        });
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+   const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const orderItemsContainer = document.getElementById('order-items');
 const orderTotalContainer = document.getElementById('order-total');
@@ -96,20 +55,7 @@ cart.forEach(item => {
 });
 
 orderTotalContainer.textContent = `Загальна сума: ${total} грн`;
-checkoutForm.addEventListener('submit', (event) => {
-    event.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    const address = document.getElementById('address').value;
-
-    console.log('Замовлення:', { name, phone, address, cart });
-
-    alert('Дякуємо за замовлення! Ми зв\'яжемося з вами найближчим часом.');
-
-    localStorage.removeItem('cart'); // Очищаємо кошик
-    window.location.href = 'index.html'; // Перенаправляємо на головну
-});
 
     </script>
 </body>
