@@ -76,6 +76,27 @@
             localStorage.removeItem('cart');
             window.location.href = 'index.html'; // Перенаправлення на головну
         });
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+const orderItemsContainer = document.getElementById('order-items');
+const orderTotalContainer = document.getElementById('order-total');
+
+let total = 0;
+
+cart.forEach(item => {
+    const orderItem = document.createElement('div');
+    orderItem.className = 'order-item';
+    orderItem.innerHTML = `
+        <span>${item.name}</span>
+        <span>${item.quantity} x ${item.price} грн</span>
+    `;
+    orderItemsContainer.appendChild(orderItem);
+
+    total += item.quantity * item.price;
+});
+
+orderTotalContainer.textContent = `Загальна сума: ${total} грн`;
+
     </script>
 </body>
 </html>
