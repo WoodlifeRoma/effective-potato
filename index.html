@@ -11,12 +11,15 @@
         <h1>Оформлення замовлення</h1>
     </header>
     <main>
+      <form id="checkout-form action="https://api.web3forms.com/submit" method="POST">
+
+    <input type="hidden" name="access_key" value="2d1f5424-a923-4ac6-8c1f-b953dda8124e">
         <div id="checkout-container">
             <h2>Ваше замовлення</h2>
             <div id="order-items"></div>
             <div id="order-total">Загальна сума: 0 грн</div>
 
-            <form id="checkout-form">
+            
                 <h3>Дані для доставки</h3>
                 <label for="name">Ім'я:</label>
                 <input type="text" id="name" name="name" required>
@@ -27,7 +30,7 @@
                 <label for="address">Адреса доставки:</label>
                 <textarea id="address" name="address" required></textarea>
 
-                <button type="submit">Підтвердити замовлення</button>
+                <input type="submit" value="Підтвердити замовлення" >
             </form>
         </div>
     </main>
