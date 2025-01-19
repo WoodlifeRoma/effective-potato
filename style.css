@@ -73,7 +73,7 @@ textarea {
     resize: vertical;
 }
 
-button {
+.button {
     padding: 10px;
     background-color: #007BFF;
     color: white;
