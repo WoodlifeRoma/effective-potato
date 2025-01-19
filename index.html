@@ -96,6 +96,20 @@ cart.forEach(item => {
 });
 
 orderTotalContainer.textContent = `Загальна сума: ${total} грн`;
+checkoutForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+
+    console.log('Замовлення:', { name, phone, address, cart });
+
+    alert('Дякуємо за замовлення! Ми зв\'яжемося з вами найближчим часом.');
+
+    localStorage.removeItem('cart'); // Очищаємо кошик
+    window.location.href = 'index.html'; // Перенаправляємо на головну
+});
 
     </script>
 </body>
